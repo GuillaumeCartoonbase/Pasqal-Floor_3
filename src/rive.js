@@ -116,6 +116,15 @@ const eventFire = (riveEvent) => {
 		case "NextLevel":
 			console.log(eventName);
 			break;
+
+		// Change index card
+		case "card":
+			riveInstance.setTextRunValue(
+				"lessonIndex",
+				eventName.slice(-1).toString()
+			);
+			break;
+
 		default:
 			console.log("Unhandled event:", eventName, "\n", riveEvent);
 			break;
