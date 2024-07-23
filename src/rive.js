@@ -133,6 +133,14 @@ const eventFire = (riveEvent) => {
 			console.log(eventName);
 			break;
 
+		// Fire marble movements from card's buttons
+		case "cardbutton":
+			let cardButton = eventProperties.cardButton;
+			for (let i = 0; i < lessons; i++) {
+				if (cardButton === i + 1) return inputLessonsTrigger[i].fire();
+			}
+			if (cardButton === 200) return triggerNextLevel.fire();
+			break;
 		default:
 			console.log("Unhandled event:", eventName, "\n", riveEvent);
 			break;
