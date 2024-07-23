@@ -10,6 +10,7 @@ const riveInstance = new rive.Rive({
 });
 
 const lessons = 3; // Number of lessons
+const inputLessonsStarted = []; // Lessons status
 const inputLessonsDone = []; // Lessons status
 const inputLessonsProgress = []; // Lessons progress
 const inputIsLessonsHover = []; // Lesson pointer hover
@@ -28,6 +29,12 @@ function onLoadHandler() {
 	playerSelector.value = playerID;
 
 	for (let i = 1; i <= lessons; i++) {
+		// Get lesson started status
+		// inputLessonsStarted[0].value = true; (true, false)
+		inputLessonsStarted.push(
+			inputs.find((input) => input.name === `isLesson${i}Started`)
+		);
+
 		// Get lesson done status
 		inputLessonsDone.push(
 			inputs.find((input) => input.name === `isLesson${i}Done`)
