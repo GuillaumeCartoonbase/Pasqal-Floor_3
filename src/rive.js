@@ -93,7 +93,7 @@ const eventFire = (riveEvent) => {
 			riveInstance.setBooleanStateAtPath(
 				"lessonHover",
 				true,
-				`Lesson ${eventName.slice(-1)}`
+				`Lesson ${eventIndex}`
 			);
 
 			riveInstance
@@ -106,7 +106,7 @@ const eventFire = (riveEvent) => {
 			riveInstance.setBooleanStateAtPath(
 				"lessonHover",
 				false,
-				`Lesson ${eventName.slice(-1)}`
+				`Lesson ${eventIndex}`
 			);
 
 			riveInstance
