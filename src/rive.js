@@ -81,9 +81,10 @@ const eventFire = (riveEvent) => {
 	const eventData = riveEvent.data;
 	const eventName = eventData.name;
 	const eventProperties = eventData.properties;
-	let lessonN = eventName.slice(-1);
 
 	const eventKey = eventName.split("-")[0];
+	let eventIndex = eventName.slice(-1);
+
 	switch (eventKey) {
 		case "OnHoverEnter":
 			document.body.style.cursor = "pointer";
@@ -113,7 +114,7 @@ const eventFire = (riveEvent) => {
 
 			riveInstance
 				.stateMachineInputs(stateMachine)
-				.find((i) => i.name === `isOn${lessonN}`).value = true;
+				.find((i) => i.name === `isOn${eventIndex}`).value = true;
 			break;
 		case "Off":
 			riveInstance.setBooleanStateAtPath(
@@ -124,7 +125,7 @@ const eventFire = (riveEvent) => {
 
 			riveInstance
 				.stateMachineInputs(stateMachine)
-				.find((i) => i.name === `isOn${lessonN}`).value = false;
+				.find((i) => i.name === `isOn${eventIndex}`).value = false;
 			break;
 
 		// Lesson launcher
